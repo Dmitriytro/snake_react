@@ -9,6 +9,7 @@ export default class Sound extends React.Component {
         return (
             <div className="sound">
                 <img src="/img/speaker.png" alt="" className="icon-small"/>
+                <div className="speaker"/>
             </div>
         );
     }

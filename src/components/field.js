@@ -7,10 +7,10 @@ export default class Field extends React.Component {
 
     render() {
         const CellsComponents = this.props.cells.map((cell) => {
-            return <Cell key={cell.id} {...cell}/>;
+            return <Cell key={cell.id} cell={cell}/>;
         });
         return (
-            <div className="field">{CellsComponents}</div>
+            <div className="field" >{CellsComponents}</div>
         );
     }
 }
