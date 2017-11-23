@@ -1,5 +1,7 @@
 import React from 'react';
 import Snake from './snake.js'
+import Apple from './apple.js'
+
 export default class Cell extends React.Component {
     constructor() {
         super();
@@ -7,9 +9,10 @@ export default class Cell extends React.Component {
 
     render() {
         let { cell } = this.props;
-        let snake = (!cell.empty) ? <Snake cell={cell}/> : '';
+        let snake = (!cell.empty && cell.length > 1) ? <Snake cell={cell}/> : '';
+        let apple = (!cell.empty && cell.length == 1) ? <Apple cell={cell}/> : '';
         return (
-            <div className={'cell '+ (cell.index%2 ? 'cell_odd' : 'cell_even') }>{snake}</div>
+            <div className={'cell '+ (cell.index%2 ? 'cell_odd' : 'cell_even') }>{snake}{apple}</div>
         );
     }
 }
