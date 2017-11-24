@@ -1,9 +1,8 @@
 import React from 'react';
 import Scores from './scores';
 import BestScores from './bestScores';
-import Sound from './sound';
 
-export default class Header extends React.Component {
+export default class Achievement extends React.Component {
     constructor() {
         super();
     }
@@ -12,10 +11,9 @@ export default class Header extends React.Component {
         const { score } = this.props;
         const { bestScore } = this.props;
         return (
-            <div className="header">
+            <div className="achievement">
                 <Scores score={score}/>
                 <BestScores bestScore={bestScore}/>
-                <Sound/>
             </div>
         );
     }

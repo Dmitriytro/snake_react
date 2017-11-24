@@ -157,3 +157,66 @@ img.icon
   width: 25px
   height: 25px
   display: inline-block
+.modal
+  margin-left: auto
+  margin-right: auto
+  width: 575px
+  display: none
+  &-show
+    display: block
+  &-content
+    position: absolute
+    width: 575px
+    height: 650px
+    background-color: rgba(0, 0, 0, 0.3)
+    display: block
+    text-align: center
+    z-index: 4
+    &:before
+      content: ''
+      height: 100%
+      display: inline-block
+      vertical-align: middle
+  &-window
+    display: inline-block
+    width: 400px
+    height: 250px
+    vertical-align: middle
+    border-radius: 10px
+.achievement
+  display: block
+  background-color: #b4d66b
+  height: 170px
+  margin-bottom: 20px
+  border-radius: 10px
+  &:before
+    content: ''
+    height: 100%
+    display: inline-block
+    vertical-align: middle
+  & > .scores, > .bestScores
+    float: none
+    vertical-align: middle
+    width: 120px
+    height: 70px
+    & > .count
+      font-size: 32px
+.restart-button
+  display: inline-block
+  background-color: #b4d66b
+  width: 100%
+  height: 60px
+  border-radius: 10px
+  cursor: pointer
+  border: none
+  vertical-align: top
+  &-text
+    font-size: 28px
+    line-height: 50px
+    display: inline-block
+    vertical-align: top
+  & > .restart
+    float: none
+
+
+

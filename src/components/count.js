@@ -6,8 +6,9 @@ export default class BestScores extends React.Component {
     }
 
     render() {
+        let { score } = this.props;
         return (
-            <div className="count">{0}</div>
+            <div className="count">{score}</div>
         );
     }
 }

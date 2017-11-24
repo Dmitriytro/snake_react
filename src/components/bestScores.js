@@ -7,10 +7,11 @@ export default class BestScores extends React.Component {
     }
 
     render() {
+        let { bestScore } = this.props;
         return (
             <div className="bestScores">
                 <img src="/img/cup.png" alt="" className="icon"/>
-                <Count/>
+                <Count score={bestScore}/>
             </div>
         );
     }

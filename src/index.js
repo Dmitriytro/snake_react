@@ -3,17 +3,20 @@ import ReactDOM from 'react-dom';
 import './styles.sass';
 import Header from './components/header.js';
 import Main from './components/main.js';
+import Modal from './components/modal.js';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
         this.speed = 100;
         this.startIndex = 190;
         this.fieldWidth = 21;
         this.fieldHeight = 20;
         this.cellsQuantity = this.fieldWidth*this.fieldHeight;
         this.state = {
+            modal: false,
+            score: 0,
+            bestScore: 0,
             cells: this.createCells()
         };
         this.movement(this.state.cells);
@@ -30,18 +33,24 @@ class App extends React.Component {
     }
     gameOverCheck(cells){
         let cell = cells.find(cell => !cell.empty && cell.length == cell.lengthLeft);
-        if(cell.direction == 'right' && (cell.index+1)%this.fieldWidth == 0 ||
-        cell.direction == 'left' && cell.index%this.fieldWidth == 0 ||
-        cell.direction == 'up' && cell.index-this.fieldWidth<0 ||
-        cell.direction == 'down' && cell.index+this.fieldWidth>this.cellsQuantity+1) {
+
+        let nextRight = cells.find(next => next.index == cell.index+1);
+        let nextLeft = cells.find(next => next.index == cell.index-1);
+        let nextUp = cells.find(next => next.index == cell.index-this.fieldWidth);
+        let nextDown = cells.find(next => next.index == cell.index+this.fieldWidth);
+
+        if(cell.direction == 'right' && ((cell.index+1)%this.fieldWidth == 0 || !nextRight.empty && nextRight.length != 1) ||
+        cell.direction == 'left' && (cell.index%this.fieldWidth == 0 || !nextLeft.empty && nextLeft.length != 1) ||
+        cell.direction == 'up' && (cell.index-this.fieldWidth<0 || !nextUp.empty && nextUp.length != 1) ||
+        cell.direction == 'down' && (cell.index+this.fieldWidth>this.cellsQuantity+1 || !nextDown.empty && nextDown.length != 1)) {
             cell.directionSelected = true;
-            this.restartWindow();
+            this.setState({modal: true});
             clearInterval(this.intervalID);
             return true
         } else return false
     }
-    restartWindow(){
-        console.log('game over');
+    restartGame(){
+        this.setState({modal: false});
     }
     renewal(cells){
         let headCell = null;
@@ -84,7 +93,10 @@ class App extends React.Component {
         let currentCell = cells.find(cell=>cell.index == randomIndex);
         currentCell.empty = false;
         currentCell.length = 1;
-        if(point){console.log('plus 1 point')}
+        if(point){
+            this.setState({score: this.state.score+1});
+            if(this.state.score>this.state.bestScore) this.setState({bestScore: this.state.score});
+        }
         return cells
     }
     nextCell(previousCell,arr){
@@ -138,16 +150,23 @@ class App extends React.Component {
         return cells
     }
 
+    restartGame(){
+        this.setState({
+            modal: false,
+            score: 0,
+            cells: this.createCells()
+        });
+        setTimeout(()=>{this.movement(this.state.cells)},0);
 
-    handleChange(e) {
-        this.setState({name: e.target.value});
     }
+
     render() {
         return (
             <div className="content">
+                <Modal score={this.state.score} bestScore={this.state.bestScore} restart={this.restartGame.bind(this)} modal={this.state.modal}/>
                 <div className="content-align">
-                    <Header className="header"/>
-                    <Main className="main" cells={this.state.cells}/>
+                    <Header score={this.state.score} bestScore={this.state.bestScore} />
+                    <Main cells={this.state.cells}/>
                 </div>
             </div>
         );
