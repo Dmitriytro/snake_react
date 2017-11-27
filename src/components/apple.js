@@ -7,7 +7,7 @@ export default class Apple extends React.Component {
 
     render() {
         return (
-            <div><img className="apple" src="/img/apple.png" alt="icon-apple"/></div>
+            <div><img className="apple" src="img/apple.png" alt="icon-apple"/></div>
         );
     }
 }

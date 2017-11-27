@@ -28,6 +28,11 @@ module.exports = {
                 }],
                 // use style-loader in development
                 fallback: "style-loader"
+            },
+            {
+                test: /\.png$/,
+                loader: "url-loader?name=images/[name].[ext]"
+                //loader: "file-loader?name=images/[name].[ext]"
             })
         }]
     },

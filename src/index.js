@@ -13,7 +13,6 @@ class App extends React.Component {
         this.fieldWidth = 21;
         this.fieldHeight = 20;
         this.cellsQuantity = this.fieldWidth*this.fieldHeight;
-        this.gameOver = false;
         this.state = {
             modal: false,
             score: 0,

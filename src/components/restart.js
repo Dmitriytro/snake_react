@@ -9,7 +9,7 @@ export default class Restart extends React.Component {
         // const { restart } = this.props;
         return (
             <div className="restart">
-                <img src="/img/restart.png" alt="" className="icon-small"/>
+                <img src="img/restart.png" alt="" className="icon-small"/>
             </div>
         );
     }

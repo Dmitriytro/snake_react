@@ -25,7 +25,8 @@
     "webpack": "^3.8.1"
   },
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "Dmitriy Troitskiy",
   "license": "ISC"
