@@ -95,22 +95,22 @@ img.icon
 
 .snake-right
   &.snake-head
-    animation: move-right 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+    animation: move-right 200ms ease-out forwards
     & > .faceWrapper
-      animation: head-right 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+      animation: head-right 200ms ease-out forwards
   &.snake-tail
     animation: move-tail-right 200ms ease-out forwards
 @keyframes move-right
   0%
     width: 30px
-  80%
+  90%
     width: 35px
   100%
     width: 55px
 @keyframes head-right
   0%
     transform: translateX(-10px)
-  80%
+  90%
     transform: translateX(-5px)
   100%
     transform: translateX(15px)
@@ -123,29 +123,29 @@ img.icon
     width: 15px
 
 .snake-down
-  transform: rotate(80deg)
+  transform: rotate(90deg)
   transform-origin: 12px
   top: 1px
   &.snake-head
-    animation: move-down 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+    animation: move-down 200ms ease-out forwards
     & > .faceWrapper
-      animation: head-down 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+      animation: head-down 200ms ease-out forwards
   &.snake-tail
     width: 21px
     margin-left: 2px
     margin-right: 2px
-    animation: move-tail-down 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+    animation: move-tail-down 200ms ease-out forwards
 @keyframes move-down
   0%
     width: 30px
-  80%
+  90%
     width: 35px
   100%
     width: 55px
 @keyframes head-down
   0%
     transform: translateX(-10px)
-  80%
+  90%
     transform: translateX(-5px)
   100%
     transform: translateX(15px)
@@ -161,22 +161,22 @@ img.icon
   transform: rotate(180deg)
   transform-origin: 12px
   &.snake-head
-    animation: move-left 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+    animation: move-left 200ms ease-out forwards
     & > .faceWrapper
-      animation: head-left 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+      animation: head-left 200ms ease-out forwards
   &.snake-tail
-    animation: move-tail-left 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+    animation: move-tail-left 200ms ease-out forwards
 @keyframes move-left
   0%
     width: 30px
-  80%
+  90%
     width: 35px
   100%
     width: 55px
 @keyframes head-left
   0%
     transform: translateX(-10px)
-  80%
+  90%
     transform: translateX(-5px)
   100%
     transform: translateX(15px)
@@ -188,29 +188,29 @@ img.icon
     width: 16px
 
 .snake-up
-  transform: rotate(-80deg)
+  transform: rotate(-90deg)
   transform-origin: 12px
   top: -1px
   &.snake-head
-    animation: move-up 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+    animation: move-up 200ms ease-out forwards
     & > .faceWrapper
-      animation: head-up 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+      animation: head-up 200ms ease-out forwards
   &.snake-tail
     width: 21px
     margin-left: 2px
     margin-right: 2px
-    animation: move-tail-up 200ms cubic-bezier(1,-0.48, 0.06, 1.13) forwards
+    animation: move-tail-up 200ms ease-out forwards
 @keyframes move-up
   0%
     width: 30px
-  80%
+  90%
     width: 35px
   100%
     width: 55px
 @keyframes head-up
   0%
     transform: translateX(-10px)
-  80%
+  90%
     transform: translateX(-5px)
   100%
     transform: translateX(15px)
