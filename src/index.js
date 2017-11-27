@@ -13,6 +13,7 @@ class App extends React.Component {
         this.fieldWidth = 21;
         this.fieldHeight = 20;
         this.cellsQuantity = this.fieldWidth*this.fieldHeight;
+        this.gameOver = false;
         this.state = {
             modal: false,
             score: 0,
@@ -169,7 +170,7 @@ class App extends React.Component {
                 <Modal score={this.state.score} bestScore={this.state.bestScore} restart={this.restartGame.bind(this)} modal={this.state.modal}/>
                 <div className="content-align">
                     <Header score={this.state.score} bestScore={this.state.bestScore} />
-                    <Main cells={this.state.cells}/>
+                    <Main cells={this.state.cells} modal={this.state.modal}/>
                 </div>
             </div>
         );

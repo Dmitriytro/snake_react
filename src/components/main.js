@@ -10,7 +10,7 @@ export default class Main extends React.Component {
         let { cells } = this.props;
         return (
             <div className="main">
-                <Field  cells={cells} />
+                <Field  cells={cells} modal={this.props.modal}/>
             </div>
         );
     }

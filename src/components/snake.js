@@ -77,7 +77,7 @@ export default class Snake extends React.Component {
         let classes = this.snakeClasses(cell);
         let head = (cell.length == cell.lengthLeft) ? this.renderHead() : '';
         return (
-            <div className={'snake '+classes} style={head == '' ? {} : {zIndex: 5}}>
+            <div className={'snake '+classes} style={head == '' || this.props.modal ? {} : {zIndex: 5}}>
                 {head}
             </div>
         );

@@ -7,7 +7,7 @@ export default class Field extends React.Component {
 
     render() {
         const CellsComponents = this.props.cells.map((cell) => {
-            return <Cell key={cell.id} cell={cell}/>;
+            return <Cell key={cell.id} cell={cell} modal={this.props.modal}/>;
         });
         return (
             <div className="field" >{CellsComponents}</div>
