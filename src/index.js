@@ -8,7 +8,7 @@ import Modal from './components/modal.js';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.speed = 100;
+        this.speed = 200;
         this.startIndex = 190;
         this.fieldWidth = 21;
         this.fieldHeight = 20;
@@ -139,11 +139,14 @@ class App extends React.Component {
             })
         });
         cells.forEach((cell)=>{
-            if(cell.index == this.startIndex || cell.index == this.startIndex+1){
+            if(cell.index == this.startIndex || cell.index == this.startIndex+1 || cell.index == this.startIndex+2){
                 cell.empty = false;
                 cell.direction = 'right';
-                cell.length = 2;
-                cell.lengthLeft = (cell.index == this.startIndex) ? 1 : 2;
+                cell.length = 3;
+                // cell.lengthLeft = (cell.index == this.startIndex) ? 1 : 2;
+                if(cell.index%this.startIndex == 0) cell.lengthLeft = 1;
+                else if(cell.index%this.startIndex == 1) cell.lengthLeft = 2;
+                else if(cell.index%this.startIndex == 2) cell.lengthLeft = 3;
             }
         });
         cells = this.addApple(cells);

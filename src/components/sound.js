@@ -7,7 +7,7 @@ export default class Sound extends React.Component {
 
     render() {
         return (
-            <div className="sound">
+            <div className="sound" style={{display:'none'}}>
                 <img src="/img/speaker.png" alt="" className="icon-small"/>
                 <div className="speaker"/>
             </div>

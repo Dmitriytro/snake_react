@@ -82,6 +82,7 @@ img.icon
     background-color: #c6ef6e
   &_even
     background-color: #b4d66b
+
 .snake
   background-color: #5379F1
   width: 40px
@@ -91,22 +92,139 @@ img.icon
   border-radius: 10px
   position: relative
   left: 0px
-  &-head
-.snake-up
-  transform: rotate(-90deg)
-  transform-origin: 12px
-  top: -1px
+
+.snake-right
+  &.snake-head
+    animation: move-right 200ms ease-out forwards
+    & > .faceWrapper
+      animation: head-right 200ms ease-out forwards
+  &.snake-tail
+    animation: move-tail-right 200ms ease-out forwards
+@keyframes move-right
+  0%
+    width: 30px
+  80%
+    width: 35px
+  100%
+    width: 55px
+@keyframes head-right
+  0%
+    transform: translateX(-10px)
+  80%
+    transform: translateX(-5px)
+  100%
+    transform: translateX(15px)
+@keyframes move-tail-right
+  0%
+    transform: translateX(0%)
+    width: 40px
+  100%
+    transform: translateX(25px)
+    width: 15px
+
 .snake-down
-  transform: rotate(90deg)
+  transform: rotate(80deg)
   transform-origin: 12px
   top: 1px
+  &.snake-head
+    animation: move-down 200ms ease-out forwards
+    & > .faceWrapper
+      animation: head-down 200ms ease-out forwards
+  &.snake-tail
+    width: 21px
+    margin-left: 2px
+    margin-right: 2px
+    animation: move-tail-down 200ms ease-out forwards
+@keyframes move-down
+  0%
+    width: 30px
+  80%
+    width: 35px
+  100%
+    width: 55px
+@keyframes head-down
+  0%
+    transform: translateX(-10px)
+  80%
+    transform: translateX(-5px)
+  100%
+    transform: translateX(15px)
+@keyframes move-tail-down
+  0%
+    height: 40px
+    transform: translateY(0%)
+  100%
+    height: 15px
+    transform: translateY(25px)
+
 .snake-left
   transform: rotate(180deg)
   transform-origin: 12px
+  &.snake-head
+    animation: move-left 200ms ease-out forwards
+    & > .faceWrapper
+      animation: head-left 200ms ease-out forwards
+  &.snake-tail
+    animation: move-tail-left 200ms ease-out forwards
+@keyframes move-left
+  0%
+    width: 30px
+  80%
+    width: 35px
+  100%
+    width: 55px
+@keyframes head-left
+  0%
+    transform: translateX(-10px)
+  80%
+    transform: translateX(-5px)
+  100%
+    transform: translateX(15px)
+@keyframes move-tail-left
+  0%
+    transform: translateX(-13px)
+  100%
+    transform: translateX(-25px)
+    width: 16px
+
+.snake-up
+  transform: rotate(-80deg)
+  transform-origin: 12px
+  top: -1px
+  &.snake-head
+    animation: move-up 200ms ease-out forwards
+    & > .faceWrapper
+      animation: head-up 200ms ease-out forwards
+  &.snake-tail
+    width: 21px
+    margin-left: 2px
+    margin-right: 2px
+    animation: move-tail-up 200ms ease-out forwards
+@keyframes move-up
+  0%
+    width: 30px
+  80%
+    width: 35px
+  100%
+    width: 55px
+@keyframes head-up
+  0%
+    transform: translateX(-10px)
+  80%
+    transform: translateX(-5px)
+  100%
+    transform: translateX(15px)
+@keyframes move-tail-up
+  0%
+    transform: translateY(-19px)
+    height: 40px
+  100%
+    transform: translateY(-25px)
+    height: 15px
 
 .faceWrapper
   position: absolute
-  z-index: 3
+  width: 30px
 .eye
   display: inline-block
   background-color: #5379F1
@@ -151,8 +269,7 @@ img.icon
     top: 4px
     left: 5px
   &-right
-    top: 13px
-    left: 3px
+    left: 33px
 .apple
   width: 25px
   height: 25px
@@ -171,7 +288,7 @@ img.icon
     background-color: rgba(0, 0, 0, 0.3)
     display: block
     text-align: center
-    z-index: 4
+    z-index: 2
     &:before
       content: ''
       height: 100%
@@ -217,6 +334,5 @@ img.icon
     vertical-align: top
   & > .restart
     float: none
-
 
 

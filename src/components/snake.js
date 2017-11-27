@@ -40,6 +40,7 @@ export default class Snake extends React.Component {
                 break;
             }
             case "right": {
+                classes += ' snake-right';
                 break;
             }
         }
@@ -76,7 +77,7 @@ export default class Snake extends React.Component {
         let classes = this.snakeClasses(cell);
         let head = (cell.length == cell.lengthLeft) ? this.renderHead() : '';
         return (
-            <div className={'snake '+classes}>
+            <div className={'snake '+classes} style={head == '' ? {} : {zIndex: 5}}>
                 {head}
             </div>
         );
